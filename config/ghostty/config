@@ -1,0 +1,5 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+macos-option-as-alt = true
+# Copies Ghostty's terminfo to servers you SSH into, so remote shells behave.
+shell-integration-features = ssh-terminfo,ssh-env

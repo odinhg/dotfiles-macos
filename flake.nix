@@ -12,21 +12,22 @@
   };
 
   outputs = inputs@{ nixpkgs, darwin, home-manager, ... }: {
-    darwinConfigurations."Odins-MacBook-Pro" =
-      darwin.lib.darwinSystem {
-        modules = [
-          ./configuration.nix
+    darwinConfigurations."Odins-MacBook-Pro" = darwin.lib.darwinSystem {
+      modules = [
+        ./configuration.nix
 
-          home-manager.darwinModules.home-manager
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
 
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+          # If a file Home Manager wants to manage already exists (e.g. ~/.zshrc),
+          # rename it to *.backup instead of failing.
+          home-manager.backupFileExtension = "backup";
 
-            home-manager.users."odinhg" =
-              import ./home.nix;
-          }
-        ];
-      };
+          home-manager.users.odinhg = import ./home.nix;
+        }
+      ];
+    };
   };
 }

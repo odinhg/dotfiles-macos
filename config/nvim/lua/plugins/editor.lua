@@ -1,0 +1,63 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      local ts = require("nvim-treesitter")
+      ts.install({
+        "bash", "c", "cpp", "css", "diff", "html", "json", "latex", "lua", "luadoc",
+        "markdown", "markdown_inline", "nix", "python", "query", "toml", "typst",
+        "vim", "vimdoc", "yaml",
+      })
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(ev)
+          local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+          if not lang or not pcall(vim.treesitter.start, ev.buf, lang) then return end
+          if vim.treesitter.query.get(lang, "indents") then
+            vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local actions = require("telescope.actions")
+      require("telescope").setup({
+        defaults = {
+          mappings = { i = { ["<C-u>"] = false, ["<C-d>"] = false, ["<Esc>"] = actions.close } },
+        },
+      })
+    end,
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    cmd = "Neotree",
+    dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
+
+  { "lewis6991/gitsigns.nvim", event = { "BufReadPre", "BufNewFile" }, opts = {} },
+  { "akinsho/toggleterm.nvim", version = "*", cmd = "ToggleTerm", opts = {} },
+  { "kdheepak/lazygit.nvim", cmd = "LazyGit", dependencies = { "nvim-lua/plenary.nvim" } },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      indent = { char = "┊" },
+      exclude = {
+        filetypes = { "help", "lazy", "neo-tree", "toggleterm", "typst", "markdown", "tex", "text", "gitcommit" },
+      },
+    },
+  },
+}
