@@ -1,5 +1,37 @@
-font-family = JetBrainsMono Nerd Font
-font-size = 14
 macos-option-as-alt = true
-# Copies Ghostty's terminfo to servers you SSH into, so remote shells behave.
 shell-integration-features = ssh-terminfo,ssh-env
+keybind = cmd+t=new_window
+window-show-tab-bar = never
+
+# Colors
+background = 11172b
+foreground = f2e8cf
+cursor-color = f2e8cf
+cursor-text = 11172b
+selection-background = 2a3a6b
+selection-foreground = f2e8cf
+
+palette = 0=#1d2338
+palette = 1=#f7768e
+palette = 2=#9ece6a
+palette = 3=#e0af68
+palette = 4=#7aa2f7
+palette = 5=#bb9af7
+palette = 6=#7dcfff
+palette = 7=#c8c3b0
+palette = 8=#3b4366
+palette = 9=#ff7a93
+palette = 10=#b9f27c
+palette = 11=#ffc777
+palette = 12=#82aaff
+palette = 13=#c099ff
+palette = 14=#86e1fc
+palette = 15=#f2e8cf
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 15 
+
+# Window
+window-padding-x = 8
+window-padding-y = 6
