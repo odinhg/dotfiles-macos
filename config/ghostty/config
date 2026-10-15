@@ -1,4 +1,4 @@
-macos-option-as-alt = true
+macos-option-as-alt = false
 shell-integration-features = ssh-terminfo,ssh-env
 keybind = cmd+t=new_window
 window-show-tab-bar = never
@@ -30,7 +30,7 @@ palette = 15=#f2e8cf
 
 # Font
 font-family = JetBrainsMono Nerd Font
-font-size = 15 
+font-size = 13 
 
 # Window
 window-padding-x = 8
