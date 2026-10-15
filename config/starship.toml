@@ -1,0 +1,46 @@
+# Minimal two-line prompt: context on the first line, input on the second.
+# Modules only appear when relevant (git repo, Python venv, nix shell, ...).
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nix_shell\
+$cmd_duration
+$character"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold blue"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "purple"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "red"
+
+[python]
+format = "[$symbol($virtualenv)]($style) "
+symbol = " "
+style = "yellow"
+
+[nix_shell]
+format = "[$symbol$state]($style) "
+symbol = " "
+style = "cyan"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style)"
+style = "dimmed white"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"

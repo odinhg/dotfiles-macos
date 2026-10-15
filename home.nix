@@ -113,6 +113,9 @@ in
   # Ctrl-R history search and Ctrl-T file search. Hooks into zsh automatically.
   programs.fzf.enable = true;
 
+  # Prompt. Config lives in config/starship.toml (linked at the bottom).
+  programs.starship.enable = true;
+
   # Terminal file manager. Use `y` to open it; you end up in the folder you quit in.
   programs.yazi = {
     enable = true;
@@ -126,4 +129,5 @@ in
   xdg.configFile."aerospace".source = link "aerospace";
   xdg.configFile."sketchybar".source = link "sketchybar";
   xdg.configFile."tmux".source = link "tmux";
+  xdg.configFile."starship.toml".source = link "starship.toml";
 }
