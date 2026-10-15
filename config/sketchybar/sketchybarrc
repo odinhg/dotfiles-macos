@@ -17,17 +17,69 @@ sketchybar --add event aerospace_workspace_change
 
 for sid in 1 2 3 4 5; do
     sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change front_app_switched \
         --set space.$sid \
-        update_freq=10 \
         drawing=off \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+        click_script="aerospace workspace $sid"
 done
+
+# Hidden item that updates all space.N items at once
+sketchybar --add item spaces left \
+    --subscribe spaces aerospace_workspace_change front_app_switched \
+    --set spaces \
+    drawing=off \
+    update_freq=30 \
+    script="$CONFIG_DIR/plugins/aerospace.sh"
 
 sketchybar --add item clock right \
     --set clock \
     update_freq=10 \
     script="$CONFIG_DIR/plugins/clock.sh"
+
+sketchybar --add item battery right \
+    --subscribe battery power_source_change system_woke \
+    --set battery \
+    update_freq=120 \
+    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
+    icon.color=0xfff2e8cf \
+    icon.padding_left=8 \
+    label.padding_left=4 \
+    script="$CONFIG_DIR/plugins/battery.sh"
+
+sketchybar --add item volume right \
+    --subscribe volume volume_change \
+    --set volume \
+    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
+    icon.color=0xfff2e8cf \
+    icon.padding_left=8 \
+    label.padding_left=4 \
+    script="$CONFIG_DIR/plugins/volume.sh"
+
+sketchybar --add item wifi right \
+    --subscribe wifi wifi_change system_woke \
+    --set wifi \
+    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
+    icon.padding_left=8 \
+    label.padding_left=4 \
+    script="$CONFIG_DIR/plugins/wifi.sh"
+
+sketchybar --add item memory right \
+    --set memory \
+    update_freq=15 \
+    icon="󰍛" \
+    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
+    icon.color=0xfff2e8cf \
+    icon.padding_left=8 \
+    label.padding_left=4 \
+    script="$CONFIG_DIR/plugins/memory.sh"
+
+sketchybar --add item cpu right \
+    --set cpu \
+    update_freq=5 \
+    icon="󰻠" \
+    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
+    icon.color=0xfff2e8cf \
+    icon.padding_left=8 \
+    label.padding_left=4 \
+    script="$CONFIG_DIR/plugins/cpu.sh"
 
 sketchybar --update
