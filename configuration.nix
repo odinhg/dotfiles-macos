@@ -94,6 +94,8 @@ in
     };
 
     casks = [
+      "inkscape"
+      "gimp"
       "firefox"
       "ghostty"
       "slack"

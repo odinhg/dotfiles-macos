@@ -41,7 +41,7 @@ alt-shift-5 = 'move-node-to-workspace 5'
 alt-tab = 'workspace-back-and-forth'
 alt-shift-c = 'reload-config'
 
-# Workspace 1 terminal and editor, 2 browser, 3 chat, 4 office, 5 media
+# Workspace 1 terminal and editor, 2 browser, 3 chat, 4 office, 5 media and graphics
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
@@ -52,6 +52,10 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -91,11 +95,35 @@ if.app-id = 'us.zoom.xos'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
+if.app-id = 'com.citrix.receiver.nomas'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Pages'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Numbers'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Keynote'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'org.videolan.vlc'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'org.inkscape.Inkscape'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'org.gimp.gimp'
 run = 'move-node-to-workspace 5'
 
 # Floats over whatever workspace is active
