@@ -19,6 +19,7 @@ in
     claude-code
 
     # Terminal tools
+    tmux
     htop
     ripgrep
     fd
@@ -124,4 +125,5 @@ in
   xdg.configFile."ghostty".source = link "ghostty";
   xdg.configFile."aerospace".source = link "aerospace";
   xdg.configFile."sketchybar".source = link "sketchybar";
+  xdg.configFile."tmux".source = link "tmux";
 }
