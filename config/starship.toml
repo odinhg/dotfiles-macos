@@ -1,6 +1,6 @@
-# Minimal two-line prompt: context on the first line, input on the second.
+# Minimal single-line prompt.
 # Modules only appear when relevant (git repo, Python venv, nix shell, ...).
-add_newline = true
+add_newline = false
 
 format = """
 $directory\
@@ -8,7 +8,7 @@ $git_branch\
 $git_status\
 $python\
 $nix_shell\
-$cmd_duration
+$cmd_duration\
 $character"""
 
 [directory]
@@ -37,7 +37,7 @@ style = "cyan"
 
 [cmd_duration]
 min_time = 2000
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 style = "dimmed white"
 
 [character]
