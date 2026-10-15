@@ -39,6 +39,7 @@ in
     go-task      # the `task` command
     azure-cli
     tinymist     # Typst language server
+    hugo
 
     # Neovim and its language servers
     neovim

@@ -59,6 +59,7 @@
       "microsoft-outlook"
       "bitwarden"
       "nikitabobko/tap/aerospace"
+      "zoom"
     ];
 
     brews = [ ];
