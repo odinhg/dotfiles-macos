@@ -3,7 +3,7 @@
 let
   # Config folders in the repo are linked straight into ~/.config,
   # so edits take effect immediately (no rebuild needed).
-  dotfiles = "${config.home.homeDirectory}/nix-darwin/config";
+  dotfiles = "${config.home.homeDirectory}/.config/nix-darwin/config";
   link = name: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${name}";
 in
 {
@@ -49,7 +49,7 @@ in
     ruff
 
     # LaTeX
-    texlive.combined.scheme-small
+    texliveSmall
   ];
 
   programs.home-manager.enable = true;
@@ -97,7 +97,8 @@ in
   # Nix helper: `nh search`, `nh darwin switch`, `nh clean`.
   programs.nh = {
     enable = true;
-    flake = "/Users/odinhg/nix-darwin";
+    flake = "/Users/odinhg/.config/nix-darwin";
+
   };
 
   # Hooks into zsh automatically.
@@ -113,6 +114,7 @@ in
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
   };
 
   # Dotfiles from ~/nix-darwin/config
