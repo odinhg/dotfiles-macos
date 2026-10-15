@@ -52,6 +52,11 @@
       "spotify"
       "citrix-workspace"
       "skim"  # PDF viewer with SyncTeX, used by VimTeX
+      "microsoft-excel"
+      "microsoft-word"
+      "microsoft-powerpoint"
+      "microsoft-teams"
+      "microsoft-outlook"
     ];
 
     brews = [ ];

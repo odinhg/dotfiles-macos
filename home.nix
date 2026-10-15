@@ -98,7 +98,6 @@ in
   programs.nh = {
     enable = true;
     flake = "/Users/odinhg/.config/nix-darwin";
-
   };
 
   # Hooks into zsh automatically.
