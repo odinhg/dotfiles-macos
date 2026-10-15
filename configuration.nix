@@ -57,44 +57,15 @@
       "microsoft-powerpoint"
       "microsoft-teams"
       "microsoft-outlook"
+      "bitwarden"
+      "nikitabobko/tap/aerospace"
     ];
 
     brews = [ ];
+    taps = [ "nikitabobko/tap" ];
   };
 
   # Make brew-installed CLI tools available. Appended after Nix paths,
   # so Nix versions win if both exist.
   environment.systemPath = [ "/opt/homebrew/bin" ];
-
-  # Tiling window manager. Needs Accessibility permission on first start.
-  services.aerospace = {
-    enable = true;
-    settings = {
-      gaps = {
-        inner.horizontal = 8;
-        inner.vertical = 8;
-        outer = { left = 8; right = 8; top = 8; bottom = 8; };
-      };
-      mode.main.binding = {
-        alt-h = "focus left";
-        alt-j = "focus down";
-        alt-k = "focus up";
-        alt-l = "focus right";
-        alt-shift-h = "move left";
-        alt-shift-j = "move down";
-        alt-shift-k = "move up";
-        alt-shift-l = "move right";
-        alt-f = "fullscreen";
-        alt-slash = "layout tiles horizontal vertical";
-        alt-1 = "workspace 1";
-        alt-2 = "workspace 2";
-        alt-3 = "workspace 3";
-        alt-4 = "workspace 4";
-        alt-shift-1 = "move-node-to-workspace 1";
-        alt-shift-2 = "move-node-to-workspace 2";
-        alt-shift-3 = "move-node-to-workspace 3";
-        alt-shift-4 = "move-node-to-workspace 4";
-      };
-    };
-  };
 }
