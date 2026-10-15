@@ -122,5 +122,6 @@ in
   # Dotfiles from ~/nix-darwin/config
   xdg.configFile."nvim".source = link "nvim";
   xdg.configFile."ghostty".source = link "ghostty";
+  xdg.configFile."aerospace".source = link "aerospace";
   xdg.configFile."sketchybar".source = link "sketchybar";
 }
