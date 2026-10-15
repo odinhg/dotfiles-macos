@@ -36,16 +36,16 @@ in
     gh
     lazygit
     just
-    go-task      # the `task` command
+    go-task # the `task` command
     azure-cli
-    tinymist     # Typst language server
+    tinymist # Typst language server
     hugo
 
     # Neovim and its language servers
     neovim
-    tree-sitter  # builds Treesitter parsers
-    nodejs       # for Copilot
-    harper       # grammar and spelling
+    tree-sitter # builds Treesitter parsers
+    nodejs # for Copilot
+    harper # grammar and spelling
     pyright
     ruff
 
@@ -57,7 +57,10 @@ in
 
   programs.git = {
     enable = true;
-    ignores = [ ".DS_Store" ".direnv/" ];
+    ignores = [
+      ".DS_Store"
+      ".direnv/"
+    ];
     settings = {
       user.name = "Odin Hoff Gardå";
       user.email = "odin.hoff.garda@proton.me";

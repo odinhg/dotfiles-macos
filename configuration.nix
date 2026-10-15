@@ -16,7 +16,8 @@ in
   # Required if you used the Determinate installer; harmless otherwise.
   nix.enable = false;
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (pkgs.lib.getName pkg) [
       "claude-code"
     ];
@@ -24,10 +25,27 @@ in
   # Weekly garbage collection (nix.gc is unavailable with nix.enable = false).
   # Runs Saturday at noon, so a bad cleanup leaves Sunday to fix it.
   launchd.daemons.nh-clean = {
-    path = [ pkgs.nh "/nix/var/nix/profiles/default" ];
+    path = [
+      pkgs.nh
+      "/nix/var/nix/profiles/default"
+    ];
     serviceConfig = {
-      ProgramArguments = [ "${pkgs.nh}/bin/nh" "clean" "all" "--keep-since" "14d" "--keep" "5" ];
-      StartCalendarInterval = [{ Weekday = 6; Hour = 12; Minute = 0; }];
+      ProgramArguments = [
+        "${pkgs.nh}/bin/nh"
+        "clean"
+        "all"
+        "--keep-since"
+        "14d"
+        "--keep"
+        "5"
+      ];
+      StartCalendarInterval = [
+        {
+          Weekday = 6;
+          Hour = 12;
+          Minute = 0;
+        }
+      ];
       StandardOutPath = "/var/log/nh-clean.log";
       StandardErrorPath = "/var/log/nh-clean.log";
     };
@@ -84,7 +102,7 @@ in
       "vlc"
       "spotify"
       "citrix-workspace"
-      "skim"  # PDF viewer with SyncTeX, used by VimTeX
+      "skim" # PDF viewer with SyncTeX, used by VimTeX
       "microsoft-excel"
       "microsoft-word"
       "microsoft-powerpoint"
