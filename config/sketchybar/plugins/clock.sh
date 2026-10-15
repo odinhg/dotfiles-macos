@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-/etc/profiles/per-user/odinhg/bin/sketchybar --set "$NAME" label="$(date '+%a %d %b  %H:%M')"
+export PATH="/run/current-system/sw/bin:$PATH"
+sketchybar --set "$NAME" label="$(date '+%a %d %b  %H:%M')"

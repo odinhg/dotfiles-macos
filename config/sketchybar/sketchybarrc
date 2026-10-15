@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-export PATH="/etc/profiles/per-user/odinhg/bin:/opt/homebrew/bin:$PATH"
+export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:$PATH"
 
-sketchybar --bar height=28 position=top color=0xff1e1e2e
+sketchybar --bar height=28 position=top color=0xff11172b
 
 sketchybar --default \
     label.font="JetBrainsMono Nerd Font:Bold:13.0" \
-    label.color=0xffcdd6f4 \
+    label.color=0xfff2e8cf \
     label.padding_left=8 \
     label.padding_right=8 \
-    background.color=0x44ffffff \
+    background.color=0xff2a3a6b \
     background.corner_radius=5 \
     background.height=20 \
     background.drawing=off
@@ -19,7 +19,7 @@ for sid in 1 2 3 4 5; do
     sketchybar --add item space.$sid left \
         --subscribe space.$sid aerospace_workspace_change front_app_switched \
         --set space.$sid \
-        update_freq=3 \
+        update_freq=10 \
         drawing=off \
         click_script="aerospace workspace $sid" \
         script="$CONFIG_DIR/plugins/aerospace.sh $sid"

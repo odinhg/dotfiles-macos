@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export PATH="/etc/profiles/per-user/odinhg/bin:/opt/homebrew/bin:$PATH"
+export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:$PATH"
 
 sid="$1"
 focused=$(aerospace list-workspaces --focused)

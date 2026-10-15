@@ -8,7 +8,7 @@ let
 in
 {
   home.username = "odinhg";
-  home.homeDirectory = "/Users/odinhg";
+  home.homeDirectory = "/Users/${config.home.username}";
 
   # Keep this fixed after the initial setup.
   home.stateVersion = "25.05";
@@ -50,10 +50,7 @@ in
     ruff
 
     # LaTeX
-    texliveSmall
-
-    # Sketchybar
-    sketchybar
+    texliveMedium
   ];
 
   programs.home-manager.enable = true;
@@ -93,7 +90,6 @@ in
       c = "clear";
       vim = "nvim";
       cat = "bat";
-      grep = "rg";
       rebuild = "nh darwin switch -H Odins-MacBook-Pro";
     };
   };
@@ -101,7 +97,7 @@ in
   # Nix helper: `nh search`, `nh darwin switch`, `nh clean`.
   programs.nh = {
     enable = true;
-    flake = "/Users/odinhg/.config/nix-darwin";
+    flake = "${config.home.homeDirectory}/.config/nix-darwin";
   };
 
   # Hooks into zsh automatically.
