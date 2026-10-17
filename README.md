@@ -38,7 +38,7 @@ mlx-chat --model mlx-community/Qwen3-30B-A3B-4bit
 mlx-server --model mlx-community/Qwen3-30B-A3B-4bit         # OpenAI API at localhost:8080/v1
 ```
 
-By default the GPU can use about 36 GB of the 48 GB. To raise the limit until the next reboot, run `sudo sysctl iogpu.wired_limit_mb=40960`.
+By default the GPU can use about 38 GB of the 48 GB. To raise the limit until the next reboot, run `sudo sysctl iogpu.wired_limit_mb=40960`.
 
 ## Setting up a new Mac
 

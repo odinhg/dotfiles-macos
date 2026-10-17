@@ -20,7 +20,7 @@
     }:
     {
       # `nix fmt` formats the .nix files.
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
       darwinConfigurations."Odins-MacBook-Pro" = darwin.lib.darwinSystem {
         modules = [
