@@ -24,6 +24,22 @@ nix fmt            # format the .nix files
 nh clean all       # free up space (also runs on its own every Saturday)
 ```
 
+## Local LLMs
+
+Nothing runs in the background. A model is only loaded while one of these commands is running.
+
+- `llama-cpp` comes from Nix and uses Metal. `-hf` downloads GGUF models from Hugging Face (cached in `~/Library/Caches/llama.cpp`).
+- MLX goes through `uvx`, because the `mlx` in nixpkgs is built without Metal and only runs on the CPU. Models are cached in `~/.cache/huggingface`.
+
+```sh
+llama-cli -hf unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M             # chat in the terminal
+llama-server -hf unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M -c 16384 # OpenAI API at localhost:8080/v1
+mlx-chat --model mlx-community/Qwen3-30B-A3B-4bit
+mlx-server --model mlx-community/Qwen3-30B-A3B-4bit         # OpenAI API at localhost:8080/v1
+```
+
+By default the GPU can use about 36 GB of the 48 GB. To raise the limit until the next reboot, run `sudo sysctl iogpu.wired_limit_mb=40960`.
+
 ## Setting up a new Mac
 
 1. Install Nix with the Determinate installer:

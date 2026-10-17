@@ -18,6 +18,9 @@ in
     opencode
     claude-code
 
+    # Local LLMs (run on demand, no background service)
+    llama-cpp # llama-cli, llama-server (Metal)
+
     # Terminal tools
     tmux
     htop
@@ -95,6 +98,10 @@ in
       vim = "nvim";
       cat = "bat";
       rebuild = "nh darwin switch -H Odins-MacBook-Pro";
+
+      # MLX via uvx: the nixpkgs mlx is built without Metal (CPU only).
+      mlx-chat = "uvx --from mlx-lm mlx_lm.chat";
+      mlx-server = "uvx --from mlx-lm mlx_lm.server";
     };
   };
 
