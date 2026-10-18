@@ -45,6 +45,7 @@ in
     azure-cli
     tinymist # Typst language server
     hugo
+    pandoc
 
     # Neovim and its language servers
     neovim
