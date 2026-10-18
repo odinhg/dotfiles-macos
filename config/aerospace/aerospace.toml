@@ -43,6 +43,12 @@ alt-shift-5 = ['move-node-to-workspace 5', 'exec-and-forget /run/current-system/
 alt-tab = 'workspace-back-and-forth'
 alt-shift-c = 'reload-config'
 
+# Dialogs and sheets (e.g. Firefox save panel) are detected as floating. Leave
+# them where they appear, otherwise the app rules below pull them to another workspace.
+[[on-window-detected]]
+if = 'test %{window-layout} = floating'
+run = 'layout floating'
+
 # Workspace 1 terminal and editor, 2 browser, 3 chat, 4 office, 5 media and graphics
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
