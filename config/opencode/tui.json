@@ -1,0 +1,10 @@
+{
+  "plugin": [
+    [
+      "@leohenon/opencode-vim-plugin",
+      {
+        "enabled": true
+      }
+    ]
+  ]
+}

@@ -17,6 +17,7 @@ in
     # AI coding tools
     opencode
     claude-code
+    openspec
 
     # Local LLMs (run on demand, no background service)
     llama-cpp # llama-cli, llama-server (Metal)
@@ -136,5 +137,11 @@ in
   xdg.configFile."aerospace".source = link "aerospace";
   xdg.configFile."sketchybar".source = link "sketchybar";
   xdg.configFile."tmux".source = link "tmux";
+  xdg.configFile."opencode/tui.json".source = link "opencode/tui.json";
+  xdg.configFile."htop/htoprc".source = link "htop/htoprc";
+  xdg.configFile."gh/config.yml".source = link "gh/config.yml";
+  home.file.".claude/settings.json".source = link "claude/settings.json";
+  home.file.".claude/CLAUDE.md".source = link "claude/CLAUDE.md";
+  home.file.".claude/statusline.sh".source = link "claude/statusline.sh";
   xdg.configFile."starship.toml".source = link "starship.toml";
 }

@@ -1,0 +1,9 @@
+{
+  "theme": "auto",
+  "model": "sonnet",
+  "editorMode": "vim",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  }
+}
