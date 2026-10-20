@@ -23,6 +23,8 @@ map("n", "<leader>fr", pick("resume"), "Resume last picker")
 map("n", "<leader>n", "<cmd>Neotree toggle<CR>", "File tree")
 map("n", "<leader>ft", "<cmd>ToggleTerm<CR>", "Terminal")
 map("n", "<leader>lg", "<cmd>LazyGit<CR>", "LazyGit")
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", "Diagnostics (buffer)")
+map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle<CR>", "Diagnostics (all)")
 
 -- Buffers
 for i = 1, 9 do

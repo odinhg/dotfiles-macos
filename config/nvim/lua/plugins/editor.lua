@@ -47,6 +47,26 @@ return {
 
   { "lewis6991/gitsigns.nvim", event = { "BufReadPre", "BufNewFile" }, opts = {} },
   { "akinsho/toggleterm.nvim", version = "*", cmd = "ToggleTerm", opts = {} },
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {
+      keys = {
+        -- Code action on the item without leaving the list (e.g. add a word
+        -- to harper's dictionary). Moves the main window's cursor to the item.
+        a = {
+          action = function(view)
+            local item, main = view:at().item, view:main()
+            if not (item and item.buf and main) then return end
+            vim.api.nvim_win_set_buf(main.win, item.buf)
+            vim.api.nvim_win_set_cursor(main.win, item.pos)
+            vim.api.nvim_win_call(main.win, vim.lsp.buf.code_action)
+          end,
+          desc = "Code action",
+        },
+      },
+    },
+  },
   { "kdheepak/lazygit.nvim", cmd = "LazyGit", dependencies = { "nvim-lua/plenary.nvim" } },
 
   {

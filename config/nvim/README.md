@@ -30,6 +30,7 @@ Leader is Space, local leader is `,`.
 | `<leader>n` | File tree |
 | `<leader>ft` | Terminal |
 | `<leader>lg` | LazyGit |
+| `<leader>xx` / `xX` | Trouble: buffer / all diagnostics (`a` in the list: code action) |
 | `<leader>tp` | Typst preview |
 | `<leader>tg` | Toggle grammar checking |
 | `gd` / `gr` / `gR` / `K` | Definition / references / rename / hover |
