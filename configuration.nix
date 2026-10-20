@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   user = "odinhg";
@@ -25,9 +30,10 @@ in
   # Weekly garbage collection (nix.gc is unavailable with nix.enable = false).
   # Runs Saturday at noon, so a bad cleanup leaves Sunday to fix it.
   launchd.daemons.nh-clean = {
+    # Plain strings are used as-is (packages get /bin appended), so spell out bin.
     path = [
       pkgs.nh
-      "/nix/var/nix/profiles/default"
+      "/nix/var/nix/profiles/default/bin"
     ];
     serviceConfig = {
       ProgramArguments = [
@@ -56,6 +62,17 @@ in
 
   # Status bar. Runs as a launchd agent, restarted if it crashes.
   services.sketchybar.enable = true;
+  # Wait for the Nix store volume before starting. At login launchd can run this
+  # before /nix is mounted, fail with EX_CONFIG and stop retrying.
+  launchd.user.agents.sketchybar.serviceConfig = {
+    ProgramArguments = lib.mkForce [
+      "/bin/sh"
+      "-c"
+      "/bin/wait4path /nix/store && exec ${config.services.sketchybar.package}/bin/sketchybar"
+    ];
+    StandardOutPath = "/tmp/sketchybar.log";
+    StandardErrorPath = "/tmp/sketchybar.log";
+  };
 
   # Font for Ghostty. Installed system-wide.
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
