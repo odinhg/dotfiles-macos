@@ -57,6 +57,10 @@ in
 
     # LaTeX
     texliveMedium
+
+    # Fonts
+    libertine
+    monoid
   ];
 
   programs.home-manager.enable = true;
