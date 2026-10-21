@@ -30,8 +30,11 @@ palette = 15=#f2e8cf
 
 # Font
 font-family = JetBrainsMono Nerd Font
-font-size = 13 
+font-size = 14 
 
 # Window
 window-padding-x = 8
-window-padding-y = 6
+window-padding-y = 4
+background-blur = macos-glass-regular
+background-opacity = 0.2
+macos-titlebar-style = hidden 
