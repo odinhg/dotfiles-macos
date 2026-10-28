@@ -34,6 +34,11 @@ return {
           mappings = { i = { ["<C-u>"] = false, ["<C-d>"] = false, ["<Esc>"] = actions.close } },
         },
       })
+      -- Wrap long lines in the preview so grep matches are visible without opening the file.
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TelescopePreviewerLoaded",
+        callback = function() vim.wo.wrap = true end,
+      })
     end,
   },
 
