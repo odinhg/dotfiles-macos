@@ -29,8 +29,10 @@ palette = 14=#86e1fc
 palette = 15=#f2e8cf
 
 # Font
-font-family = JetBrainsMono Nerd Font
-font-size = 14 
+font-family = Monoid
+font-size = 14
+adjust-cell-height = -1
+font-thicken = true 
 
 # Window
 window-padding-x = 8
