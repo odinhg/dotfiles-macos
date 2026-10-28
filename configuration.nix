@@ -130,6 +130,7 @@ in
       "bitwarden"
       "nikitabobko/tap/aerospace"
       "zoom"
+      "scroll-reverser"
     ];
 
     brews = [ ];
