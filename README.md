@@ -19,9 +19,28 @@ AeroSpace keeps apps on fixed workspaces (`Alt+1` to `Alt+5`): terminal on 1, br
 
 ```sh
 rebuild            # apply changes
-nix flake update   # update everything, then rebuild
+nix flake update   # bump flake.lock (see Updating)
 nix fmt            # format the .nix files
 nh clean all       # free up space (also runs on its own every Saturday)
+```
+
+## Updating
+
+Nix packages are pinned in `flake.lock`. To update them:
+
+```sh
+nix flake update                       # bump all inputs (or name one: nix flake update nixpkgs)
+nh darwin build -H Odins-MacBook-Pro   # build and show the version diff, without switching
+rebuild                                # switch to the new versions
+```
+
+If the build fails because a package is broken upstream, undo the update with `git checkout flake.lock` and try again in a few days. Commit `flake.lock` once the update works. To go back to an earlier generation, run `sudo darwin-rebuild --rollback`.
+
+Homebrew casks are not upgraded by `rebuild` (`autoUpdate` and `upgrade` are off in `configuration.nix`), so that is a separate step. Many apps also update themselves.
+
+```sh
+brew update && brew outdated --cask    # see what is available
+brew upgrade --cask                    # upgrade
 ```
 
 ## Local LLMs
