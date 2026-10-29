@@ -42,7 +42,7 @@ in
     lazygit
     just
     go-task # the `task` command
-    azure-cli
+    # azure-cli # add when fabric bug is fixed
     tinymist # Typst language server
     hugo
     pandoc
@@ -56,7 +56,7 @@ in
     ruff
 
     # LaTeX
-    texliveMedium
+    texliveFull
 
     # Fonts
     libertine
@@ -83,6 +83,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    NODE_EXTRA_CA_CERTS = "/etc/ssl/certs/ca-certificates.crt";
   };
 
   programs.zsh = {
