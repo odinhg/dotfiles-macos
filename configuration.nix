@@ -133,7 +133,7 @@ in
       "scroll-reverser"
     ];
 
-    brews = [ ];
+    brews = [ "openjazz" ]; # not in nixpkgs
     taps = [ "nikitabobko/tap" ];
   };
 
