@@ -4,6 +4,12 @@
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "theme": "auto",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "autoCompactEnabled": false
 }
