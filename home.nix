@@ -15,7 +15,7 @@ in
 
   home.packages = with pkgs; [
     # AI coding tools
-    opencode
+    # opencode # add when node_modules hash mismatch is fixed (anomalyco/opencode#59882)
     claude-code
     openspec
 
@@ -42,7 +42,7 @@ in
     lazygit
     just
     go-task # the `task` command
-    # azure-cli # add when fabric bug is fixed
+    # azure-cli # add when fabric fix (NixOS/nixpkgs#582595) reaches nixpkgs-unstable
     tinymist # Typst language server
     hugo
     pandoc
