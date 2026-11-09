@@ -15,7 +15,7 @@ in
 
   home.packages = with pkgs; [
     # AI coding tools
-    # opencode # add when node_modules hash mismatch is fixed (anomalyco/opencode#59882)
+    opencode
     claude-code
     openspec
 
@@ -42,7 +42,7 @@ in
     lazygit
     just
     go-task # the `task` command
-    # azure-cli # add when fabric fix (NixOS/nixpkgs#582595) reaches nixpkgs-unstable
+    azure-cli
     tinymist # Typst language server
     hugo
     pandoc
@@ -143,7 +143,7 @@ in
   xdg.configFile."aerospace".source = link "aerospace";
   xdg.configFile."sketchybar".source = link "sketchybar";
   xdg.configFile."tmux".source = link "tmux";
-  xdg.configFile."opencode/tui.json".source = link "opencode/tui.json";
+  xdg.configFile."opencode/opencode.jsonc".source = link "opencode/opencode.jsonc";
   xdg.configFile."htop/htoprc".source = link "htop/htoprc";
   xdg.configFile."gh/config.yml".source = link "gh/config.yml";
   home.file.".claude/settings.json".source = link "claude/settings.json";

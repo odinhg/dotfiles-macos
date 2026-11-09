@@ -114,6 +114,7 @@ in
       "inkscape"
       "gimp"
       "firefox"
+      "google-chrome" # for the opencode browse MCP extension
       "ghostty"
       "slack"
       "signal"
