@@ -17,4 +17,12 @@ return {
     ft = "typst",
     opts = {},
   },
+
+  -- Lean 4: LSP, infoview and unicode abbreviations (\a -> α). Needs `elan`.
+  {
+    "Julian/lean.nvim",
+    event = { "BufReadPre *.lean", "BufNewFile *.lean" },
+    dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" },
+    opts = { mappings = true },
+  },
 }

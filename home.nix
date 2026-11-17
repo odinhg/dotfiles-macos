@@ -46,6 +46,7 @@ in
     tinymist # Typst language server
     hugo
     pandoc
+    elan # Lean 4 toolchain manager: provides lean, lake (and Mathlib via lake)
 
     # Neovim and its language servers
     neovim
