@@ -34,6 +34,7 @@ in
     wget
     unzip
     zip
+    btop
 
     # Development
     uv
